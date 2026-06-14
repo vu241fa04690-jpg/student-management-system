@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports - EduDash</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>📚 EduDash</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">🏠 Dashboard</a>
+                <a href="students.html" class="nav-link">👥 Students</a>
+                <a href="courses.html" class="nav-link">📖 Courses</a>
+                <a href="attendance.html" class="nav-link">✓ Attendance</a>
+                <a href="grades.html" class="nav-link">📊 Grades</a>
+                <a href="reports.html" class="nav-link active">📈 Reports</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>Reports & Analytics</h2>
+                <div class="user-info">Admin <img src="https://via.placeholder.com/40" alt="User"></div>
+            </header>
+
+            <section class="content">
+                <div class="card">
+                    <h3>Student Grade Report</h3>
+                    <form class="form-grid" style="grid-template-columns: 1fr auto;">
+                        <input type="number" id="studentGradeId" placeholder="Student ID" required>
+                        <button type="button" onclick="generateStudentGradeReport()" class="btn btn-primary">Generate</button>
+                    </form>
+                    <div id="gradeReportResult"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Student Attendance Report</h3>
+                    <form class="form-grid" style="grid-template-columns: 1fr auto;">
+                        <input type="number" id="studentAttendanceId" placeholder="Student ID" required>
+                        <button type="button" onclick="generateAttendanceReport()" class="btn btn-primary">Generate</button>
+                    </form>
+                    <div id="attendanceReportResult"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Course Summary Report</h3>
+                    <form class="form-grid" style="grid-template-columns: 1fr auto;">
+                        <input type="number" id="courseSummaryId" placeholder="Course ID" required>
+                        <button type="button" onclick="generateCourseSummary()" class="btn btn-primary">Generate</button>
+                    </form>
+                    <div id="courseSummaryResult"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/reports.js"></script>
+</body>
+
+</html>

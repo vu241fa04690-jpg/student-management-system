@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses - EduDash</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>📚 EduDash</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">🏠 Dashboard</a>
+                <a href="students.html" class="nav-link">👥 Students</a>
+                <a href="courses.html" class="nav-link active">📖 Courses</a>
+                <a href="attendance.html" class="nav-link">✓ Attendance</a>
+                <a href="grades.html" class="nav-link">📊 Grades</a>
+                <a href="reports.html" class="nav-link">📈 Reports</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>Courses Management</h2>
+                <div class="user-info">Admin <img src="https://via.placeholder.com/40" alt="User"></div>
+            </header>
+
+            <section class="content">
+                <div class="card">
+                    <h3>Add New Course</h3>
+                    <form id="courseForm" class="form-grid">
+                        <input type="text" id="courseName" placeholder="Course Name" required>
+                        <input type="text" id="courseCode" placeholder="Course Code" required>
+                        <input type="number" id="credits" placeholder="Credits" required>
+                        <input type="text" id="instructor" placeholder="Instructor Name" required>
+                        <button type="button" onclick="addCourse()" class="btn btn-primary">Add Course</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Courses List</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Course Name</th>
+                                <th>Code</th>
+                                <th>Credits</th>
+                                <th>Instructor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="courseList">
+                            <tr>
+                                <td colspan="5">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/courses.js"></script>
+</body>
+
+</html>

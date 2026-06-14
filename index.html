@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduDash - Student Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>📚 EduDash</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">🏠 Dashboard</a>
+                <a href="students.html" class="nav-link">👥 Students</a>
+                <a href="courses.html" class="nav-link">📖 Courses</a>
+                <a href="attendance.html" class="nav-link">✓ Attendance</a>
+                <a href="grades.html" class="nav-link">📊 Grades</a>
+                <a href="reports.html" class="nav-link">📈 Reports</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>Dashboard</h2>
+                <div class="user-info">Admin <img src="https://via.placeholder.com/40" alt="User"></div>
+            </header>
+
+            <section class="dashboard">
+                <div class="stats-grid">
+                    <div class="card stat-card">
+                        <div class="card-icon students">👥</div>
+                        <h3>Total Students</h3>
+                        <p id="totalStudents">0</p>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="card-icon courses">📖</div>
+                        <h3>Active Courses</h3>
+                        <p id="totalCourses">0</p>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="card-icon attendance">✓</div>
+                        <h3>Attendance Rate</h3>
+                        <p>92%</p>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="card-icon grades">📊</div>
+                        <h3>Avg Grade</h3>
+                        <p>8.5/10</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions card">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <a href="students.html" class="btn btn-primary">➕ Add Student</a>
+                        <a href="courses.html" class="btn btn-success">➕ Add Course</a>
+                        <a href="attendance.html" class="btn btn-warning">✏️ Mark Attendance</a>
+                        <a href="grades.html" class="btn btn-info">✏️ Add Grades</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async() => {
+            try {
+                const s = await fetch('http://localhost:8000/students/');
+                const c = await fetch('http://localhost:8000/courses/');
+                if (s.ok) document.getElementById('totalStudents').textContent = (await s.json()).length;
+                if (c.ok) document.getElementById('totalCourses').textContent = (await c.json()).length;
+            } catch (e) {
+                console.error(e);
+            }
+        });
+    </script>
+</body>
+
+</html>

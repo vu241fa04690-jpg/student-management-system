@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grades - EduDash</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>📚 EduDash</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">🏠 Dashboard</a>
+                <a href="students.html" class="nav-link">👥 Students</a>
+                <a href="courses.html" class="nav-link">📖 Courses</a>
+                <a href="attendance.html" class="nav-link">✓ Attendance</a>
+                <a href="grades.html" class="nav-link active">📊 Grades</a>
+                <a href="reports.html" class="nav-link">📈 Reports</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>Grades Management</h2>
+                <div class="user-info">Admin <img src="https://via.placeholder.com/40" alt="User"></div>
+            </header>
+
+            <section class="content">
+                <div class="card">
+                    <h3>Add New Grade</h3>
+                    <form id="gradeForm" class="form-grid">
+                        <input type="number" id="gradeStudentId" placeholder="Student ID" required>
+                        <input type="number" id="gradeCourseId" placeholder="Course ID" required>
+                        <input type="number" id="marks" placeholder="Marks (0-100)" step="0.1" required>
+                        <input type="text" id="gradeValue" placeholder="Grade (A, B, C, etc)" required>
+                        <button type="button" onclick="addGrade()" class="btn btn-primary">Add Grade</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Grades List</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student ID</th>
+                                <th>Course ID</th>
+                                <th>Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gradeList">
+                            <tr>
+                                <td colspan="5">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/grades.js"></script>
+</body>
+
+</html>
